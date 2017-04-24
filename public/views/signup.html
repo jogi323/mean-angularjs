@@ -1,0 +1,64 @@
+<div class="form-top col-md-6 col-md-offset-3">
+  <div class="form-top-left">
+    <h3>Sign up now</h3>
+    <p>Fill in the form below to get instant access:</p>
+  </div>
+</div>
+<div class="form-bottom col-md-6 col-md-offset-3">
+  <form role="form" name="signup" novalidate >
+    <div class="form-group" ng-class="{'has-error':signup.firstname.$invalid && (signup.firstname.$touched || signup.firstname.$dirty)}">
+      <label class="sr-only" for="form-first-name">First name</label>
+      <input type="text" name="firstname" placeholder="First name..." class="form-control" ng-model="user.firstname" pattern="^[a-zA-Z\s]+$" required>
+        <p ng-show="signup.firstname.$error.required && signup.firstname.$dirty" class="help-block">Firstname is required.</p>
+        <p ng-show="signup.firstname.$error.pattern" class="help-block">Firstname should be in alphabets.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.lastname.$invalid && (signup.lastname.$touched || signup.lastname.$dirty)}">
+      <label class="sr-only" for="form-last-name">Last name</label>
+      <input type="text" name="lastname" placeholder="Last name..." class="form-control" ng-model="user.lastname" pattern="^[a-zA-Z\s]+$" required>
+      <p ng-show="signup.lastname.$error.required && signup.lastname.$dirty" class="help-block">Lastname is required.</p>
+      <p ng-show="signup.lastname.$error.pattern" class="help-block">Lastname should be in alphabets.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.email.$invalid && (signup.email.$touched || signup.email.$dirty)}">
+      <label class="sr-only" for="form-email">Email</label>
+      <input type="email" name="email" placeholder="Email..." class="form-control" required #email="ngModel" ng-model="user.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <p ng-show="signup.email.$error.required && signup.email.$dirty" class="help-block">Email-Id is required.</p>
+      <p ng-show="signup.email.$error.pattern" class="help-block">Email-Id should be in proper format.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.empId.$invalid && (signup.empId.$touched || signup.empId.$dirty)}">
+      <label class="sr-only" for="form-employeeId">Emp.Id</label>
+      <input type="text" name="empId" class="form-control" placeholder="Employee Id..." required  ng-model="user.empId"
+        pattern="^[0-9]{4}">
+      <p ng-show="signup.empId.$error.required && signup.empId.$dirty" class="help-block">Employee-Id is required.</p>
+      <p ng-show="signup.empId.$error.pattern" class="help-block">Employee-Id should be 4 digits.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.mobile.$invalid && (signup.mobile.$touched || signup.mobile.$dirty)}">
+      <label class="sr-only" for="form-mobile-number">Mobile number</label>
+      <input type="text" name="mobile" class="form-control" placeholder="Mobile Number..." required  ng-model="user.mobile"
+        pattern="^[7-9][0-9]{9}">
+      <p ng-show="signup.mobile.$error.required && signup.mobile.$dirty" class="help-block">Mobile number is required.</p>
+      <p ng-show="signup.mobile.$error.pattern" class="help-block">Enter proper Mobile number</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.password.$invalid && (signup.password.$touched || signup.password.$dirty)}">
+      <label class="sr-only" for="form-Password">Password</label>
+      <input type="password" name="password" placeholder="Password..." class="form-control" ng-model="user.password" ng-minlength="6" required>
+      <p ng-show="signup.password.$error.required && signup.password.$dirty" class="help-block">password is required.</p>
+      <p ng-show="signup.password.$error.minlength" class="help-block">Password should contain minimum of 6 characters or digits.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.dob.$invalid && (signup.dob.$touched || signup.dob.$dirty)}">
+      <label class="sr-only" for="form-dob">Date Of Birth</label>
+      
+      <input type="date" name="dob" placeholder="Date Of Birth..." class="form-control" ng-model="user.dob" required>
+      
+      <p ng-show="signup.dob.$error.required && signup.dob.$dirty" class="help-block">Date Of Birth is required.</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error':signup.gender.$invalid && (signup.gender.$touched || signup.gender.$dirty)}">
+      <label class="gender">Gender</label>
+      <input type="radio" name="gender" value="Male" ng-model="user.gender" required >Male
+      <input type="radio" name="gender" value="Female" ng-model="user.gender" required >Female
+      <p ng-show="signup.gender.$error.required && signup.gender.$dirty" class="help-block">Gender is required.</p>
+    </div>
+    <input type="file" onchange="angular.element(this).scope().setFile(this)" accept="image/*" placeholder="Upload file"  required><br>
+    <button type="submit" class="btn btn-primary" ng-disabled="signup.$invalid" ng-click="registeruser(user)">Register me !</button>
+    <p>already have an account? <a href="/">login here</a></p>
+  </form>
+</div>

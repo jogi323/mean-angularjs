@@ -1,0 +1,33 @@
+<!--<div ng-include="'views/header.html'"></div>-->
+
+    <main id="page-content-wrapper" role="main">
+        <div class="col-md-10 col-md-offset-2" >
+            <input id="search" type="text" ng-model="query">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Email-Id</th>
+                            <th>Mobile</th>
+                            <th>Preview</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-controller="homeCtrl">
+                        <tr ng-repeat="emp in employees|filter:query">
+                            <td>{{$index +1}}</td>
+                            <td>{{emp.firstName+" "+emp.lastName}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.mobileNumber}}</td>
+                            <td><i class="fa fa-eye" aria-hidden="true" id="preview" ng-click="open(emp)"></i></td>
+                            <td><i class="fa fa-pencil" aria-hidden="true" id="edit" ng-click="edit(emp)"></i></td>
+                            <td><i class="fa fa-trash" aria-hidden="true" id="delete" ng-click="delete(emp)"></i></td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+    </main>

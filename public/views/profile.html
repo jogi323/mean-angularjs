@@ -1,0 +1,38 @@
+<!--<div ng-include="'views/header.html'"></div>-->
+<main id="page-content-wrapper" role="main">
+   
+    <div class="col-md-6 col-md-offset-3">
+        <!--<marquee><h3>Welcome to my new Web Application's Profile Page.</h3></marquee>-->
+        <img id="image" ng-src="{{user.image}}"class="img-responsive img-thumbnail" height="200px">
+        <table class="table-responsive">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label>Emp-Id  </label></td>
+                    <td>{{user.empId}}</td>
+                </tr>
+                <tr>
+                    <td><label>Name  </label></td>
+                    <td>{{user.firstName +" "+ user.lastName }}</td>
+                </tr>
+                <tr>
+                    <td><label>Email-Id  </label></td>
+                    <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                    <td><label>Mobile  </label></td>
+                    <td>{{user.mobileNumber}}</td>
+                </tr>
+                <tr>
+                    <td><label>Date of Birth  </label></td>
+                    <td>{{user.dob |date: 'dd-MM-yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
